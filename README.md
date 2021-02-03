@@ -11,3 +11,11 @@ Status:
 * Channels: Done.
 
 * Style: Old fashioned text-only so far.
+
+# Server
+
+Start one of the server files. Python 3 (minium) must be added to path. The default host address is your computer ONLY.
+
+# Client
+
+Start client.py. The default server to connect to is your computer ONLY.
