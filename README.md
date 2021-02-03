@@ -14,8 +14,8 @@ Status:
 
 # Server
 
-Start one of the server files. Python 3 (minium) must be added to path. The default host address is your computer ONLY.
+Start one of the server files. Python 3 (minium) must be added to path. The default host address is your computer ONLY (0.0.0.0:8081).
 
 # Client
 
-Start client.py. Python 3 (minium) must be added to path. The default server to connect to is your computer ONLY.
+Start client.py. Python 3 (minium) must be added to path. The default server to connect to is your computer ONLY (0.0.0.0:8081).
