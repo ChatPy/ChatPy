@@ -4,7 +4,7 @@ from log import *
 HEADER_LENGTH = 10
 IP = "0.0.0.0"
 PORT = 8081
-log("Creating socket...")
+log("Creating socket...",command="start")
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 log("Binding socket...")
@@ -33,16 +33,16 @@ while True:
                 continue
             sockets_list.append(client_socket)
             clients[client_socket] = user
-            log('Accepted new connection from {}:{}, username: {}'.format(*client_address, user['data'].decode('utf-8')))
+            log('Accepted new connection from {}:{}, username: {}'.format(*client_address, user['data'].decode('utf-8')),command="join")
         else:
             message = receive_message(notified_socket)
             if message is False:
-                log('Closed connection from: {}'.format(clients[notified_socket]['data'].decode('utf-8')))
+                log('Closed connection from: {}'.format(clients[notified_socket]['data'].decode('utf-8')),command="leave")
                 sockets_list.remove(notified_socket)
                 del clients[notified_socket]
                 continue
             user = clients[notified_socket]
-            log(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
+            log(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}',command="leave")
             logf(f'<{user["data"].decode("utf-8")}> {message["data"].decode("utf-8")}')
             for client_socket in clients:
                 if client_socket != notified_socket:
