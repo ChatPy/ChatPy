@@ -6,19 +6,21 @@ try:
 except:
   pass
 file = open("chat_history.log","a")
-def log(message,command="none",level="INFO"):
+def log(message,command="",level="INFO"):
   global file
   now = datetime.now()
   print("[" + now.strftime("%H:%M:%S") + "] [" + level + "] " + message)
   if weblog:
-    weblogdata(message)
-def logf(message,command="none",level="INFO"):
+    if command:
+      weblogdata(command)
+def logf(message,command="",level="INFO"):
   global file
   now = datetime.now()
   file.write("[" + now.strftime("%H:%M:%S") + "] [" + level + "] " + message + "\n")
   file.close()
   file = open("chat_history.log","a")
   if weblog:
-    weblogdata(message)
+    if command:
+      weblogdata(message)
 def weblogdata(datatolog):
   extension.record(datatolog)
