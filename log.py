@@ -6,13 +6,13 @@ try:
 except:
   pass
 file = open("chat_history.log","a")
-def log(message,level="INFO"):
+def log(message,command="none",level="INFO"):
   global file
   now = datetime.now()
   print("[" + now.strftime("%H:%M:%S") + "] [" + level + "] " + message)
   if weblog:
     weblogdata(message)
-def logf(message,level="INFO"):
+def logf(message,command="none",level="INFO"):
   global file
   now = datetime.now()
   file.write("[" + now.strftime("%H:%M:%S") + "] [" + level + "] " + message + "\n")
