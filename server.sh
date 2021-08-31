@@ -1,1 +1,1 @@
-export PATH="$PATH:/usr/local/bin/python" && python server.py
+export PATH="$PATH:/usr/local/bin/python3" && python3 server.py
